@@ -4,18 +4,22 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.MalformedURLException;
+
 public class Simple_HTTP_Client {
     public static void main(String[] args) {
         try {
             URL url = new URL("https://www.youtube.com/");
+
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
             httpConn.setRequestMethod("GET");
             httpConn.setRequestProperty("Accept", "text/html");
             httpConn.setConnectTimeout(5000);
             httpConn.setReadTimeout(5000);
+
             int responseCode = httpConn.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(httpConn.getInputStream()));
+
                 String inputLine;
                 StringBuilder response = new StringBuilder();
                 while ((inputLine = in.readLine()) != null) {
