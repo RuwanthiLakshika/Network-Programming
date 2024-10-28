@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Multithreaded_TCP_Server {
     public static int COUNT = 0;
@@ -14,6 +16,11 @@ public class Multithreaded_TCP_Server {
             //connection initialization
             ServerSocket serverSocket = new ServerSocket(5006);
             System.out.println("Server is listening...");
+
+            //  It allows to create ThreadPools and submit tasks
+            // Reusing threads
+            // Reuse a fixed number of threads to execute a large number of tasks
+            ExecutorService executor = Executors.newFixedThreadPool(10);
 
             while(true){
                 Socket socket =serverSocket.accept();
@@ -25,7 +32,8 @@ public class Multithreaded_TCP_Server {
                         handleRequest(socket);
                     }
                 });
-                t.start();
+//                t.start();
+                executor.submit(t);
             }
 
         }
@@ -47,7 +55,11 @@ public class Multithreaded_TCP_Server {
             int number = Integer.parseInt(clientMessage);
 
             //processing data
-            COUNT += number;
+            //Synchronized block to avoid race condition
+            //synchronized - Ensure that only one thread at a time can execute a synchronized block or method
+            synchronized (Multithreaded_TCP_Server.class){
+                COUNT += number;
+            }
             String serverMessage = "COUNT: " + COUNT;
 
             //send response to client
