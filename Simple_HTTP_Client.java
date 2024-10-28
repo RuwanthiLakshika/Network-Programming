@@ -1,3 +1,14 @@
+//Objective: Build an HTTP client to retrieve HTML content from a web page.
+
+//        Steps:
+//        1. Create a new Java class named SimpleHttpClient.
+//        2. Write code to perform an HTTP GET request to a web page (e.g.,
+//        https://www.uom.lk).
+//        3. Set the appropriate request headers, such as Accept (content type)
+//        4. Read and print the HTML content of the web page.
+//        5. Handle exceptions appropriately
+
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
