@@ -1,0 +1,10 @@
+1. Single-threaded Server – accepts one client at a time.
+Total time for 1000requests: 1048 ms
+Average time per request: 1.048 ms
+
+2. Multi-threaded Server with a Fixed Thread Pool of Size 2 – handles up to 2 clients concurrently.
+Total time for 1000requests: 1029 ms
+Average time per request: 1.029 ms
+
+3. Multi-threaded Server with a Fixed Thread Pool of Size 10 – handles up to 10 clients concurrently.
+
