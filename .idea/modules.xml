@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Measuring_Response_Time/Measuring_Response_Time.iml" filepath="$PROJECT_DIR$/Measuring_Response_Time/Measuring_Response_Time.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NIO/NIO.iml" filepath="$PROJECT_DIR$/NIO/NIO.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Network-Programming.iml" filepath="$PROJECT_DIR$/.idea/Network-Programming.iml" />
     </modules>
   </component>
